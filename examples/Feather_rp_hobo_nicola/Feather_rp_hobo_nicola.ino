@@ -236,13 +236,13 @@ void loop() {
 			if (_USE_KBD_SUSPEND(global_setting))
 				multicore_reset_core1();  // stop core1
 			suspended = true;
-			//usb_a_5v_off();		//** koseki (2026.9.20)
+			usb_a_5v_off();		//** koseki (2026.9.20)
 		}
 		delay(500);
 	} else {
 		if ( suspended ) {
 			suspended = false;
-			//usb_a_5v_on();		//** koseki (2026.9.20)
+			usb_a_5v_on();		//** koseki (2026.9.20)
 			delay(10);
 			if (_USE_KBD_SUSPEND(global_setting))
 				watchdog_reboot(0, 0, 10);  // reboot after a while. 
