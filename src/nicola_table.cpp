@@ -244,17 +244,12 @@ void HoboNicola::set_nid_table(bool us) {
 uint16_t HoboNicola::get_nid(uint8_t& k) {
 	uint16_t m = 0;
 	switch(k) {
-	//**koseki (2026.9.19)
-	// Space keyを使わないとき、後退/取消がある富士通純正キーボードとみなす
 	case HID_J_COLON:         // C11 : は後退キーに
-		if (!_SPC_TO_NONE(global_setting))
-			k =  HID_BACKSP;
+		k =  HID_BACKSP;
 		break;
 	case HID_J_RBR_32:	       // C12 [ は取消キーに
-		if (!_SPC_TO_NONE(global_setting))
-			k = HID_ESCAPE;
+		k = HID_ESCAPE;
 		break;
-	//**
 	case HID_SPACE:
 		if (!dedicated_oyakeys) {
 			if (_SINGLE_OYAYUBI_MODE(global_setting))	// シングル親指のとき、空白キーは右親指キーとみなす。

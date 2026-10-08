@@ -147,7 +147,6 @@ public:
         };
 
         void Parse(USBHID *hid, bool is_rpt_id, uint8_t len, uint8_t *buf);
-
 protected:
 #if 0
         virtual uint8_t HandleLockingKeys(USBHID* hid, uint8_t key) {
